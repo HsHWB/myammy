@@ -17,6 +17,30 @@
     <param-value>/WEB-INF/classes/application*.xml</param-value>
   </context-param>
   
+  <!-- jstl -->
+  	<jsp-config>
+		<taglib>
+			<taglib-uri>c.tld</taglib-uri>
+			<taglib-location>/WEB-INF/lib/c.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>fmt.tld</taglib-uri>
+			<taglib-location>/WEB-INF/lib/fmt.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>fn.tld</taglib-uri>
+			<taglib-location>/WEB-INF/lib/fn.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>sql.tld</taglib-uri>
+			<taglib-location>/WEB-INF/lib/sql.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>x.tld</taglib-uri>
+			<taglib-location>/WEB-INF/lib/x.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+  
   <servlet>
   	<servlet-name>springmvc</servlet-name>
   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

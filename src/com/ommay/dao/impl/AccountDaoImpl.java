@@ -3,6 +3,7 @@ package com.ommay.dao.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.ommay.dao.AccountDao;
@@ -41,7 +42,17 @@ public class AccountDaoImpl extends BaseDao  implements AccountDao {
 	@Override
 	public Object findByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		Map<String, Object> map = null;
+		Account account =null;
+		if (name != null) {
+			//Query query = String.format("from Account where account='%s'",name);
+			String hql = "from Account where account='"+name+"'";
+			account =(Account) super.getCurrentSession().createQuery(hql).uniqueResult();
+			System.out.println("account == "+account.getAccount());
+			return account;
+		}else {
+			return account;
+		}
 	}
 
 	@Override

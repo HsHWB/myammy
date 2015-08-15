@@ -19,7 +19,11 @@
 	   		<mvc:resources location="/resource/css/" mapping="/resource/css/**"/>
 			<mvc:resources location="/resource/js/" mapping="/resource/js/**"/>
 			<mvc:resources location="/resource/jquery/" mapping="/resource/jquery/**"/>
-			<mvc:resources location="/resource/bootstarp/" mapping="/resource/bootstarp/**"/>
+			<mvc:resources location="/resource/bootstrap/" mapping="/resource/bootstrap/**"/>
+			<mvc:resources location="/resource/bootstrap/css/" mapping="/resource/bootstrap/css/**"/>
+			<mvc:resources location="/resource/bootstrap/js/" mapping="/resource/bootstrap/js/**"/>
+			<mvc:resources location="/resource/images/" mapping="/resource/images/**"/>
+			
 			<mvc:resources location="/" mapping="/*.html"/>
 	  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/jsp/"/>

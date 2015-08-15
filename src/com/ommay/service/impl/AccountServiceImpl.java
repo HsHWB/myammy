@@ -32,7 +32,8 @@ public class AccountServiceImpl implements BaseService{
 	@Override
 	public Object findUserByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		Account account = (Account)accountDao.findByName(name);
+		return account;
 	}
 
 	@Override

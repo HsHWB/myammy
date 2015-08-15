@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,10 +29,10 @@ public class AccountController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/save_action")
-	public String saveProduct(Model model){
+	@RequestMapping(value="/login")
+	public String login(Model model){
 		model.addAttribute(new Account());
-		return "accidentInsert";
+		return "index";
 	}
 	
 	/**
@@ -39,10 +40,15 @@ public class AccountController {
 	 * 
 	 */
 	
-	@RequestMapping(value="/accident_save_service")
-	public String useSaveService(Account account) {
-		accountService.save(account);
-		return "accidentDate";
+	@RequestMapping(value="/operation")
+	public String useSaveService(@ModelAttribute Account account) {
+//		accountService.save(account);
+		String accountName = account.getAccount();
+		if (!(accountService.findUserByName(accountName)).equals(null)) {
+			return "showUser";
+		}else{
+			return "accidentInsert";
+		}
 		
 	}
 	
