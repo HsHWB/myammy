@@ -8,8 +8,9 @@ public class IndentVip implements java.io.Serializable {
 
 	// Fields
 
-	private Long indentVipUniqueId;
-	private Indent indent;
+	private Integer uidIndentVip;
+	private Integer uidIndent;
+	private Integer uidProject;
 	private String accountClientIndent;
 	private String indentVipName;
 	private String indentVipSex;
@@ -23,21 +24,27 @@ public class IndentVip implements java.io.Serializable {
 
 	/** default constructor */
 	public IndentVip() {
-	}
-
-	/** minimal constructor */
-	public IndentVip(Long indentVipUniqueId) {
-		this.indentVipUniqueId = indentVipUniqueId;
+		this.uidIndentVip = -1;
+		this.uidIndent = -1;
+		this.uidProject = -1;
+		this.accountClientIndent = accountClientIndent;
+		this.indentVipName = indentVipName;
+		this.indentVipSex = indentVipSex;
+		this.indentVipPhone = indentVipPhone;
+		this.indentVipIdcard = indentVipIdcard;
+		this.indentVipEmail = indentVipEmail;
+		this.indentVipAddress = indentVipAddress;
+		this.indentVipSicknessHistory = indentVipSicknessHistory;
 	}
 
 	/** full constructor */
-	public IndentVip(Long indentVipUniqueId, Indent indent,
+	public IndentVip(Integer uidIndent, Integer uidProject,
 			String accountClientIndent, String indentVipName,
 			String indentVipSex, String indentVipPhone, String indentVipIdcard,
 			String indentVipEmail, String indentVipAddress,
 			String indentVipSicknessHistory) {
-		this.indentVipUniqueId = indentVipUniqueId;
-		this.indent = indent;
+		this.uidIndent = uidIndent;
+		this.uidProject = uidProject;
 		this.accountClientIndent = accountClientIndent;
 		this.indentVipName = indentVipName;
 		this.indentVipSex = indentVipSex;
@@ -50,20 +57,28 @@ public class IndentVip implements java.io.Serializable {
 
 	// Property accessors
 
-	public Long getIndentVipUniqueId() {
-		return this.indentVipUniqueId;
+	public Integer getUidIndentVip() {
+		return this.uidIndentVip;
 	}
 
-	public void setIndentVipUniqueId(Long indentVipUniqueId) {
-		this.indentVipUniqueId = indentVipUniqueId;
+	public void setUidIndentVip(Integer uidIndentVip) {
+		this.uidIndentVip = uidIndentVip;
 	}
 
-	public Indent getIndent() {
-		return this.indent;
+	public Integer getUidIndent() {
+		return this.uidIndent;
 	}
 
-	public void setIndent(Indent indent) {
-		this.indent = indent;
+	public void setUidIndent(Integer uidIndent) {
+		this.uidIndent = uidIndent;
+	}
+
+	public Integer getUidProject() {
+		return this.uidProject;
+	}
+
+	public void setUidProject(Integer uidProject) {
+		this.uidProject = uidProject;
 	}
 
 	public String getAccountClientIndent() {

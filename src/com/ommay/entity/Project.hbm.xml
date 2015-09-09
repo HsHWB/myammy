@@ -6,13 +6,13 @@
 -->
 <hibernate-mapping>
     <class name="com.ommay.entity.Project" table="project" catalog="ommay">
-        <id name="uuidProject" type="java.lang.Long">
-            <column name="uuid_project" />
-            <generator class="assigned" />
+        <id name="uidProject" type="java.lang.Integer">
+            <column name="uid_project" />
+            <generator class="identity" />
         </id>
-        <many-to-one name="account" class="com.ommay.entity.Account" fetch="select">
+        <property name="account" type="java.lang.String">
             <column name="account" length="30" />
-        </many-to-one>
+        </property>
         <property name="clientName" type="java.lang.String">
             <column name="client_name" length="30" />
         </property>
@@ -22,20 +22,14 @@
         <property name="contractReviewFlag" type="java.lang.Boolean">
             <column name="contract_review_flag" />
         </property>
-        <property name="timeBegin" type="java.util.Date">
-            <column name="time_begin" length="10" />
+        <property name="timeBegin" type="java.lang.String">
+            <column name="time_begin" length="30" />
         </property>
-        <property name="timeEnd" type="java.util.Date">
-            <column name="time_end" length="10" />
+        <property name="timeEnd" type="java.lang.String">
+            <column name="time_end" length="30" />
         </property>
         <property name="addressGroup" type="java.lang.String">
             <column name="address_group" length="40" />
-        </property>
-        <property name="phoneGroup" type="java.lang.String">
-            <column name="phone_group" length="20" />
-        </property>
-        <property name="emailProject" type="java.lang.String">
-            <column name="email_project" length="30" />
         </property>
         <property name="peopleNumber" type="java.lang.Integer">
             <column name="people_number" />
@@ -44,31 +38,25 @@
             <column name="remark" length="100" />
         </property>
         <property name="projectBuilder" type="java.lang.String">
-            <column name="project_builder" length="10" />
+            <column name="project_builder" length="30" />
         </property>
-        <property name="projectReviewDate" type="java.util.Date">
-            <column name="project_review_date" length="10" />
+        <property name="projectReviewDate" type="java.lang.String">
+            <column name="project_review_date" length="30" />
         </property>
-        <property name="contractReviewDate" type="java.util.Date">
-            <column name="contract_review_date" length="10" />
+        <property name="contractReviewDate" type="java.lang.String">
+            <column name="contract_review_date" length="30" />
         </property>
         <property name="projectReviewRemark" type="java.lang.String">
             <column name="project_review_remark" length="100" />
         </property>
         <property name="projectReviewMaster" type="java.lang.String">
-            <column name="project_review_master" length="10" />
+            <column name="project_review_master" length="30" />
         </property>
         <property name="contractReviewRemark" type="java.lang.String">
             <column name="contract_review_remark" length="100" />
         </property>
         <property name="contractReviewMaster" type="java.lang.String">
-            <column name="contract_review_master" length="10" />
+            <column name="contract_review_master" length="30" />
         </property>
-        <set name="projectDetails" inverse="true">
-            <key>
-                <column name="uuid_project" />
-            </key>
-            <one-to-many class="com.ommay.entity.ProjectDetail" />
-        </set>
     </class>
 </hibernate-mapping>

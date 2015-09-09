@@ -6,13 +6,16 @@
 -->
 <hibernate-mapping>
     <class name="com.ommay.entity.IndentVip" table="indent_vip" catalog="ommay">
-        <id name="indentVipUniqueId" type="java.lang.Long">
-            <column name="indent_vip_unique_id" />
-            <generator class="assigned" />
+        <id name="uidIndentVip" type="java.lang.Integer">
+            <column name="uid_indent_vip" />
+            <generator class="identity" />
         </id>
-        <many-to-one name="indent" class="com.ommay.entity.Indent" fetch="select">
-            <column name="uuid_indent" />
-        </many-to-one>
+        <property name="uidIndent" type="java.lang.Integer">
+            <column name="uid_indent" />
+        </property>
+        <property name="uidProject" type="java.lang.Integer">
+            <column name="uid_project" />
+        </property>
         <property name="accountClientIndent" type="java.lang.String">
             <column name="account_client_indent" length="30" />
         </property>

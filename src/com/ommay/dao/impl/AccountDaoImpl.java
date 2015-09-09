@@ -1,24 +1,28 @@
 package com.ommay.dao.impl;
-
+/**
+ * @author hs 2015/8/16
+ */
 import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
-import com.ommay.dao.AccountDao;
+import com.ommay.dao.LoginModuleDao;
 import com.ommay.dao.BaseDao;
 import com.ommay.entity.Account;
+import com.ommay.utils.Constant;
 
 @Repository
-public class AccountDaoImpl extends BaseDao  implements AccountDao {
+public class AccountDaoImpl extends BaseDao  implements LoginModuleDao {
 
 	@Override
-	public List<Account> queryAll() {
+	public List<Object> queryAll(String table) {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = null;
-		String table = "from Account";
-		return super.queryAll(table, map);
+		String query = String.format("from %s", table);
+		return super.queryAll(query, map);
 	}
 
 	@Override
@@ -45,10 +49,12 @@ public class AccountDaoImpl extends BaseDao  implements AccountDao {
 		Map<String, Object> map = null;
 		Account account =null;
 		if (name != null) {
-			//Query query = String.format("from Account where account='%s'",name);
-			String hql = "from Account where account='"+name+"'";
-			account =(Account) super.getCurrentSession().createQuery(hql).uniqueResult();
-			System.out.println("account == "+account.getAccount());
+			String hql = String.format("from %s where account='%s'", Constant.TABLE_ACCOUNT, name);
+			try{
+				account =(Account) super.getCurrentSession().createQuery(hql).uniqueResult();
+			}catch(Exception e){
+				account = null;
+			}
 			return account;
 		}else {
 			return account;
@@ -57,6 +63,24 @@ public class AccountDaoImpl extends BaseDao  implements AccountDao {
 
 	@Override
 	public boolean verify(Object objectt) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountExit(String name) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Session getSession() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountTrue(String name, String password) {
 		// TODO Auto-generated method stub
 		return false;
 	}

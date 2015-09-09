@@ -8,20 +8,24 @@ public class AccountFinance implements java.io.Serializable {
 
 	// Fields
 
-	private String accountFinance;
+	private String accountFinance = "accountFinance";
 	private Account account;
-	private String passwordFinance;
-	private String emailFinance;
-	private String departmentFinance;
-	private String positionFinance;
-	private String nameFinance;
-	private String sexFinance;
-	private String phoneFinance;
+	private String emailFinance = "123456@1.com";
+	private String departmentFinance = "departmentFinance";
+	private String positionFinance = "positionFinance";
+	private String nameFinance = "nameFinance";
+	private String phoneFinance = "123456";
 
 	// Constructors
 
 	/** default constructor */
 	public AccountFinance() {
+		this.accountFinance = "accountFinance";
+		this.emailFinance = "123456@1.com";
+		this.departmentFinance = "departmentFinance";
+		this.positionFinance =  "positionFinance";
+		this.nameFinance = "nameFinance";
+		this.phoneFinance = "123456";
 	}
 
 	/** minimal constructor */
@@ -31,17 +35,14 @@ public class AccountFinance implements java.io.Serializable {
 
 	/** full constructor */
 	public AccountFinance(String accountFinance, Account account,
-			String passwordFinance, String emailFinance,
-			String departmentFinance, String positionFinance,
-			String nameFinance, String sexFinance, String phoneFinance) {
+			String emailFinance, String departmentFinance,
+			String positionFinance, String nameFinance, String phoneFinance) {
 		this.accountFinance = accountFinance;
 		this.account = account;
-		this.passwordFinance = passwordFinance;
 		this.emailFinance = emailFinance;
 		this.departmentFinance = departmentFinance;
 		this.positionFinance = positionFinance;
 		this.nameFinance = nameFinance;
-		this.sexFinance = sexFinance;
 		this.phoneFinance = phoneFinance;
 	}
 
@@ -61,14 +62,6 @@ public class AccountFinance implements java.io.Serializable {
 
 	public void setAccount(Account account) {
 		this.account = account;
-	}
-
-	public String getPasswordFinance() {
-		return this.passwordFinance;
-	}
-
-	public void setPasswordFinance(String passwordFinance) {
-		this.passwordFinance = passwordFinance;
 	}
 
 	public String getEmailFinance() {
@@ -101,14 +94,6 @@ public class AccountFinance implements java.io.Serializable {
 
 	public void setNameFinance(String nameFinance) {
 		this.nameFinance = nameFinance;
-	}
-
-	public String getSexFinance() {
-		return this.sexFinance;
-	}
-
-	public void setSexFinance(String sexFinance) {
-		this.sexFinance = sexFinance;
 	}
 
 	public String getPhoneFinance() {

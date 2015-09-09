@@ -8,17 +8,24 @@ public class AccountDoctor implements java.io.Serializable {
 
 	// Fields
 
-	private String accountDoctor;
+	private String accountDoctor = "accountDoctor";
 	private Account account;
-	private String passwordDoctor;
-	private String departmentDoctor;
-	private String positionDoctor;
-	private String emailDoctor;
+	private String departmentDoctor = "departmentDoctor";
+	private String positionDoctor = "positionDoctor";
+	private String nameDoctor = "nameDoctor";
+	private String phoneDoctor = "123456";
+	private String emailDoctor = "123@gmail.com";
 
 	// Constructors
 
 	/** default constructor */
 	public AccountDoctor() {
+		this.accountDoctor = "departmentDoctor";
+		this.departmentDoctor = "departmentDoctor";
+		this.positionDoctor =  "positionDoctor";
+		this.nameDoctor = "nameDoctor";
+		this.phoneDoctor = "123456";
+		this.emailDoctor = "123@gmail.com";
 	}
 
 	/** minimal constructor */
@@ -28,13 +35,14 @@ public class AccountDoctor implements java.io.Serializable {
 
 	/** full constructor */
 	public AccountDoctor(String accountDoctor, Account account,
-			String passwordDoctor, String departmentDoctor,
-			String positionDoctor, String emailDoctor) {
+			String departmentDoctor, String positionDoctor, String nameDoctor,
+			String phoneDoctor, String emailDoctor) {
 		this.accountDoctor = accountDoctor;
 		this.account = account;
-		this.passwordDoctor = passwordDoctor;
 		this.departmentDoctor = departmentDoctor;
 		this.positionDoctor = positionDoctor;
+		this.nameDoctor = nameDoctor;
+		this.phoneDoctor = phoneDoctor;
 		this.emailDoctor = emailDoctor;
 	}
 
@@ -56,14 +64,6 @@ public class AccountDoctor implements java.io.Serializable {
 		this.account = account;
 	}
 
-	public String getPasswordDoctor() {
-		return this.passwordDoctor;
-	}
-
-	public void setPasswordDoctor(String passwordDoctor) {
-		this.passwordDoctor = passwordDoctor;
-	}
-
 	public String getDepartmentDoctor() {
 		return this.departmentDoctor;
 	}
@@ -78,6 +78,22 @@ public class AccountDoctor implements java.io.Serializable {
 
 	public void setPositionDoctor(String positionDoctor) {
 		this.positionDoctor = positionDoctor;
+	}
+
+	public String getNameDoctor() {
+		return this.nameDoctor;
+	}
+
+	public void setNameDoctor(String nameDoctor) {
+		this.nameDoctor = nameDoctor;
+	}
+
+	public String getPhoneDoctor() {
+		return this.phoneDoctor;
+	}
+
+	public void setPhoneDoctor(String phoneDoctor) {
+		this.phoneDoctor = phoneDoctor;
 	}
 
 	public String getEmailDoctor() {

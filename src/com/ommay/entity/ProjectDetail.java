@@ -10,45 +10,58 @@ import java.util.Set;
 public class ProjectDetail implements java.io.Serializable {
 
 	// Fields
-
-	private Long uuidProjectDetail;
+	private Integer uidProjectDetail;
 	private Project project;
-	private Long uuidOrderDetail;
 	private String testType;
 	private Integer number;
-	private Set orderDetails = new HashSet(0);
+	private String packageName;
+	private String packageNumber;
+	private String packageClientName;
+	private String packageSex;
+	private Integer packageAgeUpper;
+	private Integer packageAgeLower;
+//	private Set orderDetails = new HashSet(0);
 
 	// Constructors
 
 	/** default constructor */
 	public ProjectDetail() {
-	}
-
-	/** minimal constructor */
-	public ProjectDetail(Long uuidProjectDetail) {
-		this.uuidProjectDetail = uuidProjectDetail;
+		this.project = new Project();
+		this.testType = "";
+		this.number = 0;
+		this.packageName = "";
+		this.packageNumber = "";
+		this.packageClientName = "";
+		this.packageSex = "";
+		this.packageAgeUpper = 99;
+		this.packageAgeLower = 0;
 	}
 
 	/** full constructor */
-	public ProjectDetail(Long uuidProjectDetail, Project project,
-			Long uuidOrderDetail, String testType, Integer number,
-			Set orderDetails) {
-		this.uuidProjectDetail = uuidProjectDetail;
+	public ProjectDetail(Project project, String testType, Integer number,
+			String packageName, String packageNumber, String packageClientName,
+			String packageSex, Integer packageAgeUpper,
+			Integer packageAgeLower, Set orderDetails) {
 		this.project = project;
-		this.uuidOrderDetail = uuidOrderDetail;
 		this.testType = testType;
 		this.number = number;
-		this.orderDetails = orderDetails;
+		this.packageName = packageName;
+		this.packageNumber = packageNumber;
+		this.packageClientName = packageClientName;
+		this.packageSex = packageSex;
+		this.packageAgeUpper = packageAgeUpper;
+		this.packageAgeLower = packageAgeLower;
+//		this.orderDetails = orderDetails;
 	}
 
 	// Property accessors
 
-	public Long getUuidProjectDetail() {
-		return this.uuidProjectDetail;
+	public Integer getUidProjectDetail() {
+		return this.uidProjectDetail;
 	}
 
-	public void setUuidProjectDetail(Long uuidProjectDetail) {
-		this.uuidProjectDetail = uuidProjectDetail;
+	public void setUidProjectDetail(Integer uidProjectDetail) {
+		this.uidProjectDetail = uidProjectDetail;
 	}
 
 	public Project getProject() {
@@ -57,14 +70,6 @@ public class ProjectDetail implements java.io.Serializable {
 
 	public void setProject(Project project) {
 		this.project = project;
-	}
-
-	public Long getUuidOrderDetail() {
-		return this.uuidOrderDetail;
-	}
-
-	public void setUuidOrderDetail(Long uuidOrderDetail) {
-		this.uuidOrderDetail = uuidOrderDetail;
 	}
 
 	public String getTestType() {
@@ -83,12 +88,110 @@ public class ProjectDetail implements java.io.Serializable {
 		this.number = number;
 	}
 
-	public Set getOrderDetails() {
-		return this.orderDetails;
+	public String getPackageName() {
+		return this.packageName;
 	}
 
-	public void setOrderDetails(Set orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
 	}
+
+	public String getPackageNumber() {
+		return this.packageNumber;
+	}
+	
+	public void setPackageNumber(String packageNumber) {
+		this.packageNumber = packageNumber;
+	}
+	
+	public String getPackageClientName() {
+		return this.packageClientName;
+	}
+
+	public void setPackageClientName(String packageClientName) {
+		this.packageClientName = packageClientName;
+	}
+
+	public String getPackageSex() {
+		return this.packageSex;
+	}
+
+	public void setPackageSex(String packageSex) {
+		this.packageSex = packageSex;
+	}
+
+	public Integer getPackageAgeUpper() {
+		return this.packageAgeUpper;
+	}
+
+	public void setPackageAgeUpper(Integer packageAgeUpper) {
+		this.packageAgeUpper = packageAgeUpper;
+	}
+
+	public Integer getPackageAgeLower() {
+		return this.packageAgeLower;
+	}
+
+	public void setPackageAgeLower(Integer packageAgeLower) {
+		this.packageAgeLower = packageAgeLower;
+	}
+
+	public void setSuitAgeLower(int parseInt) {
+		this.setPackageAgeLower(parseInt);
+	}
+
+	public String getSuitNumber() {
+		return this.getPackageNumber();
+	}
+	public void setSuitNumber(String suit_number)
+	{
+		this.setPackageNumber(suit_number);
+		
+	}
+	public String getSuitAgeLower() {
+		return this.getPackageAgeLower()+"";
+	}
+
+	public String getSuitAgeUpper() {
+		return this.getPackageAgeUpper()+"";
+	}
+
+	public String getSuitClientName() {
+		return this.getPackageClientName();
+	}
+
+	public String getSuitName() {
+		return this.getPackageName();
+	}
+
+	public String getSuitSex() {
+		return this.getPackageSex();
+	}
+
+	public void setSuitAgeUpper(int parseInt) {
+		this.setPackageAgeUpper(parseInt);
+	}
+
+	public void setSuitClientName(String suit_client_name) {
+		this.setPackageClientName(suit_client_name);
+		
+	}
+
+	public void setSuitName(String suit_name) {
+		this.setPackageName(suit_name);
+	}
+
+	public void setSuitSex(String suit_sex) {
+		this.setPackageSex(suit_sex);
+		
+	}
+
+//	public Set getOrderDetails() {
+//		return this.orderDetails;
+//	}
+//
+//	public void setOrderDetails(Set orderDetails) {
+//		this.orderDetails = orderDetails;
+//	}
 
 }

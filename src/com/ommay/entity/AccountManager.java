@@ -8,20 +8,24 @@ public class AccountManager implements java.io.Serializable {
 
 	// Fields
 
-	private String accountManager;
+	private String accountManager = "manager";
 	private Account account;
-	private String passwordManager;
-	private String emailManager;
-	private String departmentManager;
-	private String positionManager;
-	private String nameManager;
-	private String sexManager;
-	private String phoneManager;
+	private String emailManager = "222@163.com";
+	private String departmentManager = "departmentManager";
+	private String positionManager = "positionManager";
+	private String nameManager = "name";
+	private String phoneManager = "123456";
 
 	// Constructors
 
 	/** default constructor */
 	public AccountManager() {
+		this.accountManager ="manager";
+		this.emailManager = "222@163.com";
+		this.departmentManager ="departmentManager";
+		this.positionManager = "positionManager";
+		this.nameManager ="manager";
+		this.phoneManager =  "123456";
 	}
 
 	/** minimal constructor */
@@ -31,17 +35,14 @@ public class AccountManager implements java.io.Serializable {
 
 	/** full constructor */
 	public AccountManager(String accountManager, Account account,
-			String passwordManager, String emailManager,
-			String departmentManager, String positionManager,
-			String nameManager, String sexManager, String phoneManager) {
+			String emailManager, String departmentManager,
+			String positionManager, String nameManager, String phoneManager) {
 		this.accountManager = accountManager;
 		this.account = account;
-		this.passwordManager = passwordManager;
 		this.emailManager = emailManager;
 		this.departmentManager = departmentManager;
 		this.positionManager = positionManager;
 		this.nameManager = nameManager;
-		this.sexManager = sexManager;
 		this.phoneManager = phoneManager;
 	}
 
@@ -61,14 +62,6 @@ public class AccountManager implements java.io.Serializable {
 
 	public void setAccount(Account account) {
 		this.account = account;
-	}
-
-	public String getPasswordManager() {
-		return this.passwordManager;
-	}
-
-	public void setPasswordManager(String passwordManager) {
-		this.passwordManager = passwordManager;
 	}
 
 	public String getEmailManager() {
@@ -101,14 +94,6 @@ public class AccountManager implements java.io.Serializable {
 
 	public void setNameManager(String nameManager) {
 		this.nameManager = nameManager;
-	}
-
-	public String getSexManager() {
-		return this.sexManager;
-	}
-
-	public void setSexManager(String sexManager) {
-		this.sexManager = sexManager;
 	}
 
 	public String getPhoneManager() {

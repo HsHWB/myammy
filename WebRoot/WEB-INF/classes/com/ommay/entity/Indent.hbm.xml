@@ -6,39 +6,39 @@
 -->
 <hibernate-mapping>
     <class name="com.ommay.entity.Indent" table="indent" catalog="ommay">
-        <id name="uuidIndent" type="java.lang.Long">
-            <column name="uuid_indent" />
-            <generator class="assigned" />
+        <id name="uidIndent" type="java.lang.Integer">
+            <column name="uid_indent" />
+            <generator class="identity" />
         </id>
-        <property name="paid" type="java.lang.Boolean">
-            <column name="paid" />
+        <property name="isPaid" type="java.lang.Boolean">
+            <column name="is_paid" />
         </property>
-        <property name="moneyIndent" type="java.lang.Long">
-            <column name="money_indent" precision="10" scale="0" />
+        <property name="isPaidOperator" type="java.lang.String">
+            <column name="is_paid_operator" length="20" />
+        </property>
+        <property name="isPaidDate" type="java.lang.String">
+            <column name="is_paid_date" length="20" />
+        </property>
+        <property name="moneyIndent" type="java.lang.Integer">
+            <column name="money_indent" />
         </property>
         <property name="finishIndent" type="java.lang.Boolean">
             <column name="finish_indent" />
         </property>
-        <property name="indentUniqueId" type="java.lang.String">
-            <column name="indent_unique_id" length="30" />
+        <property name="finishOperator" type="java.lang.String">
+            <column name="finish_operator" length="20" />
         </property>
-        <set name="indentGroups" inverse="true">
-            <key>
-                <column name="uuid_indent" />
-            </key>
-            <one-to-many class="com.ommay.entity.IndentGroup" />
-        </set>
-        <set name="indentVips" inverse="true">
-            <key>
-                <column name="uuid_indent" />
-            </key>
-            <one-to-many class="com.ommay.entity.IndentVip" />
-        </set>
-        <set name="orderDetails" inverse="true">
-            <key>
-                <column name="uuid_indent" />
-            </key>
-            <one-to-many class="com.ommay.entity.OrderDetail" />
-        </set>
+        <property name="finishDate" type="java.lang.String">
+            <column name="finish_date" length="20" />
+        </property>
+        <property name="hasResult" type="java.lang.Boolean">
+            <column name="has_result" />
+        </property>
+        <property name="hasResultOperator" type="java.lang.String">
+            <column name="has_result_operator" length="20" />
+        </property>
+        <property name="hasResultDate" type="java.lang.String">
+            <column name="has_result_date" length="20" />
+        </property>
     </class>
 </hibernate-mapping>

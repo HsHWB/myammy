@@ -8,21 +8,28 @@ public class AccountClient implements java.io.Serializable {
 
 	// Fields
 
-	private String accountClient;
+	private String accountClient = "accountClient";
 	private Account account;
-	private String passwordClient;
-	private String nameClient;
-	private String sexIndent;
-	private String phoneClient;
-	private String identityCardNumber;
-	private String emailClient;
-	private String sicknessHistory;
-	private String addressClient;
+	private String nameClient = "";
+	private String sexClient =  "男";
+	private String phoneClient = "123456";
+	private String identityCardNumber = "440101197708191263";
+	private String emailClient =  "163@163.com";
+	private String sicknessHistory ="无";
+	private String addressClient =  "天朝";
 
 	// Constructors
 
 	/** default constructor */
 	public AccountClient() {
+		this.accountClient = "accountClient";
+		this.nameClient = "nameClient";
+		this.sexClient = "男";
+		this.phoneClient = "123456";
+		this.identityCardNumber = "440101197708191263";
+		this.emailClient = "163@163.com";
+		this.sicknessHistory = "无";
+		this.addressClient = "天朝";
 	}
 
 	/** minimal constructor */
@@ -32,14 +39,13 @@ public class AccountClient implements java.io.Serializable {
 
 	/** full constructor */
 	public AccountClient(String accountClient, Account account,
-			String passwordClient, String nameClient, String sexIndent,
-			String phoneClient, String identityCardNumber, String emailClient,
+			String nameClient, String sexClient, String phoneClient,
+			String identityCardNumber, String emailClient,
 			String sicknessHistory, String addressClient) {
 		this.accountClient = accountClient;
 		this.account = account;
-		this.passwordClient = passwordClient;
 		this.nameClient = nameClient;
-		this.sexIndent = sexIndent;
+		this.sexClient = sexClient;
 		this.phoneClient = phoneClient;
 		this.identityCardNumber = identityCardNumber;
 		this.emailClient = emailClient;
@@ -65,14 +71,6 @@ public class AccountClient implements java.io.Serializable {
 		this.account = account;
 	}
 
-	public String getPasswordClient() {
-		return this.passwordClient;
-	}
-
-	public void setPasswordClient(String passwordClient) {
-		this.passwordClient = passwordClient;
-	}
-
 	public String getNameClient() {
 		return this.nameClient;
 	}
@@ -81,12 +79,12 @@ public class AccountClient implements java.io.Serializable {
 		this.nameClient = nameClient;
 	}
 
-	public String getSexIndent() {
-		return this.sexIndent;
+	public String getSexClient() {
+		return this.sexClient;
 	}
 
-	public void setSexIndent(String sexIndent) {
-		this.sexIndent = sexIndent;
+	public void setSexClient(String sexClient) {
+		this.sexClient = sexClient;
 	}
 
 	public String getPhoneClient() {

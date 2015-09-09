@@ -8,17 +8,22 @@ public class AccountGroup implements java.io.Serializable {
 
 	// Fields
 
-	private String accountGroup;
+	private String accountGroup = "accountGroup";
 	private Account account;
-	private String passwordGroup;
-	private String nameMaster;
-	private String phoneMaster;
-	private String workingPhoneMaster;
+	private String nameMaster = "nameMaster";
+	private String phoneMaster = "123456";
+	private String workingPhoneMaster = "666666";
+	private String emailGroup = "123@123.com";
 
 	// Constructors
 
 	/** default constructor */
 	public AccountGroup() {
+		this.accountGroup = "accountGroup";
+		this.nameMaster = "nameMaster";
+		this.phoneMaster = "123456";
+		this.workingPhoneMaster = "666666";
+		this.emailGroup = "123@123.com";
 	}
 
 	/** minimal constructor */
@@ -28,14 +33,14 @@ public class AccountGroup implements java.io.Serializable {
 
 	/** full constructor */
 	public AccountGroup(String accountGroup, Account account,
-			String passwordGroup, String nameMaster, String phoneMaster,
-			String workingPhoneMaster) {
+			String nameMaster, String phoneMaster, String workingPhoneMaster,
+			String emailGroup) {
 		this.accountGroup = accountGroup;
 		this.account = account;
-		this.passwordGroup = passwordGroup;
 		this.nameMaster = nameMaster;
 		this.phoneMaster = phoneMaster;
 		this.workingPhoneMaster = workingPhoneMaster;
+		this.emailGroup = emailGroup;
 	}
 
 	// Property accessors
@@ -54,14 +59,6 @@ public class AccountGroup implements java.io.Serializable {
 
 	public void setAccount(Account account) {
 		this.account = account;
-	}
-
-	public String getPasswordGroup() {
-		return this.passwordGroup;
-	}
-
-	public void setPasswordGroup(String passwordGroup) {
-		this.passwordGroup = passwordGroup;
 	}
 
 	public String getNameMaster() {
@@ -86,6 +83,14 @@ public class AccountGroup implements java.io.Serializable {
 
 	public void setWorkingPhoneMaster(String workingPhoneMaster) {
 		this.workingPhoneMaster = workingPhoneMaster;
+	}
+
+	public String getEmailGroup() {
+		return this.emailGroup;
+	}
+
+	public void setEmailGroup(String emailGroup) {
+		this.emailGroup = emailGroup;
 	}
 
 }

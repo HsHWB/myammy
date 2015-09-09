@@ -11,63 +11,93 @@ public class Indent implements java.io.Serializable {
 
 	// Fields
 
-	private Long uuidIndent;
-	private Boolean paid;
-	private Long moneyIndent;
+	private Integer uidIndent;
+	private Boolean isPaid;
+	private String isPaidOperator;
+	private String isPaidDate;
+	private Integer moneyIndent;
 	private Boolean finishIndent;
-	private String indentUniqueId;
-	private Set indentGroups = new HashSet(0);
-	private Set indentVips = new HashSet(0);
-	private Set orderDetails = new HashSet(0);
+	private String finishOperator;
+	private String finishDate;
+	private Boolean hasResult;
+	private String hasResultOperator;
+	private String hasResultDate;
+//	private Set orderDetails = new HashSet(0);
 
 	// Constructors
 
 	/** default constructor */
 	public Indent() {
-	}
-
-	/** minimal constructor */
-	public Indent(Long uuidIndent) {
-		this.uuidIndent = uuidIndent;
+		this.uidIndent = -1;
+		this.isPaid = false;
+		this.isPaidOperator = "Unknown";
+		this.isPaidDate = "Unknown";
+		this.moneyIndent = -1;
+		this.finishIndent = false;
+		this.finishOperator = "Unknown";
+		this.finishDate = "Unknown";
+		this.hasResult = false;
+		this.hasResultOperator = "Unknown";
+		this.hasResultDate = "Unknown";
 	}
 
 	/** full constructor */
-	public Indent(Long uuidIndent, Boolean paid, Long moneyIndent,
-			Boolean finishIndent, String indentUniqueId, Set indentGroups,
-			Set indentVips, Set orderDetails) {
-		this.uuidIndent = uuidIndent;
-		this.paid = paid;
+	public Indent(Boolean isPaid, String isPaidOperator, String isPaidDate,
+			Integer moneyIndent, Boolean finishIndent, String finishOperator,
+			String finishDate, Boolean hasResult, String hasResultOperator,
+			String hasResultDate, Set orderDetails) {
+		this.isPaid = isPaid;
+		this.isPaidOperator = isPaidOperator;
+		this.isPaidDate = isPaidDate;
 		this.moneyIndent = moneyIndent;
 		this.finishIndent = finishIndent;
-		this.indentUniqueId = indentUniqueId;
-		this.indentGroups = indentGroups;
-		this.indentVips = indentVips;
-		this.orderDetails = orderDetails;
+		this.finishOperator = finishOperator;
+		this.finishDate = finishDate;
+		this.hasResult = hasResult;
+		this.hasResultOperator = hasResultOperator;
+		this.hasResultDate = hasResultDate;
+//		this.orderDetails = orderDetails;
 	}
 
 	// Property accessors
 
-	public Long getUuidIndent() {
-		return this.uuidIndent;
+	public Integer getUidIndent() {
+		return this.uidIndent;
 	}
 
-	public void setUuidIndent(Long uuidIndent) {
-		this.uuidIndent = uuidIndent;
+	public void setUidIndent(Integer uidIndent) {
+		this.uidIndent = uidIndent;
 	}
 
-	public Boolean getPaid() {
-		return this.paid;
+	public Boolean getIsPaid() {
+		return this.isPaid;
 	}
 
-	public void setPaid(Boolean paid) {
-		this.paid = paid;
+	public void setIsPaid(Boolean isPaid) {
+		this.isPaid = isPaid;
 	}
 
-	public Long getMoneyIndent() {
+	public String getIsPaidOperator() {
+		return this.isPaidOperator;
+	}
+
+	public void setIsPaidOperator(String isPaidOperator) {
+		this.isPaidOperator = isPaidOperator;
+	}
+
+	public String getIsPaidDate() {
+		return this.isPaidDate;
+	}
+
+	public void setIsPaidDate(String isPaidDate) {
+		this.isPaidDate = isPaidDate;
+	}
+
+	public Integer getMoneyIndent() {
 		return this.moneyIndent;
 	}
 
-	public void setMoneyIndent(Long moneyIndent) {
+	public void setMoneyIndent(Integer moneyIndent) {
 		this.moneyIndent = moneyIndent;
 	}
 
@@ -79,36 +109,52 @@ public class Indent implements java.io.Serializable {
 		this.finishIndent = finishIndent;
 	}
 
-	public String getIndentUniqueId() {
-		return this.indentUniqueId;
+	public String getFinishOperator() {
+		return this.finishOperator;
 	}
 
-	public void setIndentUniqueId(String indentUniqueId) {
-		this.indentUniqueId = indentUniqueId;
+	public void setFinishOperator(String finishOperator) {
+		this.finishOperator = finishOperator;
 	}
 
-	public Set getIndentGroups() {
-		return this.indentGroups;
+	public String getFinishDate() {
+		return this.finishDate;
 	}
 
-	public void setIndentGroups(Set indentGroups) {
-		this.indentGroups = indentGroups;
+	public void setFinishDate(String finishDate) {
+		this.finishDate = finishDate;
 	}
 
-	public Set getIndentVips() {
-		return this.indentVips;
+	public Boolean getHasResult() {
+		return this.hasResult;
 	}
 
-	public void setIndentVips(Set indentVips) {
-		this.indentVips = indentVips;
+	public void setHasResult(Boolean hasResult) {
+		this.hasResult = hasResult;
 	}
 
-	public Set getOrderDetails() {
-		return this.orderDetails;
+	public String getHasResultOperator() {
+		return this.hasResultOperator;
 	}
 
-	public void setOrderDetails(Set orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setHasResultOperator(String hasResultOperator) {
+		this.hasResultOperator = hasResultOperator;
 	}
+
+	public String getHasResultDate() {
+		return this.hasResultDate;
+	}
+
+	public void setHasResultDate(String hasResultDate) {
+		this.hasResultDate = hasResultDate;
+	}
+
+//	public Set getOrderDetails() {
+//		return this.orderDetails;
+//	}
+//
+//	public void setOrderDetails(Set orderDetails) {
+//		this.orderDetails = orderDetails;
+//	}
 
 }

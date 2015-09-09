@@ -1,6 +1,5 @@
 package com.ommay.entity;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,48 +11,81 @@ public class Project implements java.io.Serializable {
 
 	// Fields
 
-	private Long uuidProject;
-	private Account account;
+	private Integer uidProject;
+	private String account;
 	private String clientName;
 	private Boolean projectReviewFlag;
 	private Boolean contractReviewFlag;
-	private Date timeBegin;
-	private Date timeEnd;
+	private String timeBegin;
+	private String timeEnd;
 	private String addressGroup;
-	private String phoneGroup;
-	private String emailProject;
 	private Integer peopleNumber;
 	private String remark;
 	private String projectBuilder;
-	private Date projectReviewDate;
-	private Date contractReviewDate;
+	private String projectReviewDate;
+	private String contractReviewDate;
 	private String projectReviewRemark;
 	private String projectReviewMaster;
 	private String contractReviewRemark;
 	private String contractReviewMaster;
-	private Set projectDetails = new HashSet(0);
-
+//	private Set projectDetails = new HashSet(0);
+	private String status;
 	// Constructors
+
+	@Override
+	public String toString() {
+		return "Project [uidProject=" + uidProject + ", account=" + account
+				+ ", clientName=" + clientName + ", projectReviewFlag="
+				+ projectReviewFlag + ", contractReviewFlag="
+				+ contractReviewFlag + ", timeBegin=" + timeBegin
+				+ ", timeEnd=" + timeEnd + ", addressGroup=" + addressGroup
+				+ ", peopleNumber=" + peopleNumber + ", remark=" + remark
+				+ ", projectBuilder=" + projectBuilder + ", projectReviewDate="
+				+ projectReviewDate + ", contractReviewDate="
+				+ contractReviewDate + ", projectReviewRemark="
+				+ projectReviewRemark + ", projectReviewMaster="
+				+ projectReviewMaster + ", contractReviewRemark="
+				+ contractReviewRemark + ", contractReviewMaster="
+				+ contractReviewMaster + ", status=" + status + "]";
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	/** default constructor */
 	public Project() {
-	}
-
-	/** minimal constructor */
-	public Project(Long uuidProject) {
-		this.uuidProject = uuidProject;
+		this.account = "-1";
+		this.clientName = "God";
+		this.projectReviewFlag = false;
+		this.contractReviewFlag = false;
+		this.timeBegin = "2000BCBC";
+		this.timeEnd = "2000BCBC";
+		this.addressGroup = "";
+		this.peopleNumber = 0;
+		this.remark = "";
+		this.projectBuilder = "";
+		this.projectReviewDate = "";
+		this.contractReviewDate = "";
+		this.projectReviewRemark = "";
+		this.projectReviewMaster = "";
+		this.contractReviewRemark = "";
+		this.contractReviewMaster = "";
 	}
 
 	/** full constructor */
-	public Project(Long uuidProject, Account account, String clientName,
+	public Project(String account, String clientName,
 			Boolean projectReviewFlag, Boolean contractReviewFlag,
-			Date timeBegin, Date timeEnd, String addressGroup,
-			String phoneGroup, String emailProject, Integer peopleNumber,
-			String remark, String projectBuilder, Date projectReviewDate,
-			Date contractReviewDate, String projectReviewRemark,
-			String projectReviewMaster, String contractReviewRemark,
-			String contractReviewMaster, Set projectDetails) {
-		this.uuidProject = uuidProject;
+			String timeBegin, String timeEnd, String addressGroup,
+			Integer peopleNumber, String remark, String projectBuilder,
+			String projectReviewDate, String contractReviewDate,
+			String projectReviewRemark, String projectReviewMaster,
+			String contractReviewRemark, String contractReviewMaster,
+			Set projectDetails) {
 		this.account = account;
 		this.clientName = clientName;
 		this.projectReviewFlag = projectReviewFlag;
@@ -61,8 +93,6 @@ public class Project implements java.io.Serializable {
 		this.timeBegin = timeBegin;
 		this.timeEnd = timeEnd;
 		this.addressGroup = addressGroup;
-		this.phoneGroup = phoneGroup;
-		this.emailProject = emailProject;
 		this.peopleNumber = peopleNumber;
 		this.remark = remark;
 		this.projectBuilder = projectBuilder;
@@ -72,24 +102,24 @@ public class Project implements java.io.Serializable {
 		this.projectReviewMaster = projectReviewMaster;
 		this.contractReviewRemark = contractReviewRemark;
 		this.contractReviewMaster = contractReviewMaster;
-		this.projectDetails = projectDetails;
+//		this.projectDetails = projectDetails;
 	}
 
 	// Property accessors
 
-	public Long getUuidProject() {
-		return this.uuidProject;
+	public Integer getUidProject() {
+		return this.uidProject;
 	}
 
-	public void setUuidProject(Long uuidProject) {
-		this.uuidProject = uuidProject;
+	public void setUidProject(Integer uidProject) {
+		this.uidProject = uidProject;
 	}
 
-	public Account getAccount() {
+	public String getAccount() {
 		return this.account;
 	}
 
-	public void setAccount(Account account) {
+	public void setAccount(String account) {
 		this.account = account;
 	}
 
@@ -117,19 +147,19 @@ public class Project implements java.io.Serializable {
 		this.contractReviewFlag = contractReviewFlag;
 	}
 
-	public Date getTimeBegin() {
+	public String getTimeBegin() {
 		return this.timeBegin;
 	}
 
-	public void setTimeBegin(Date timeBegin) {
+	public void setTimeBegin(String timeBegin) {
 		this.timeBegin = timeBegin;
 	}
 
-	public Date getTimeEnd() {
+	public String getTimeEnd() {
 		return this.timeEnd;
 	}
 
-	public void setTimeEnd(Date timeEnd) {
+	public void setTimeEnd(String timeEnd) {
 		this.timeEnd = timeEnd;
 	}
 
@@ -139,22 +169,6 @@ public class Project implements java.io.Serializable {
 
 	public void setAddressGroup(String addressGroup) {
 		this.addressGroup = addressGroup;
-	}
-
-	public String getPhoneGroup() {
-		return this.phoneGroup;
-	}
-
-	public void setPhoneGroup(String phoneGroup) {
-		this.phoneGroup = phoneGroup;
-	}
-
-	public String getEmailProject() {
-		return this.emailProject;
-	}
-
-	public void setEmailProject(String emailProject) {
-		this.emailProject = emailProject;
 	}
 
 	public Integer getPeopleNumber() {
@@ -181,19 +195,19 @@ public class Project implements java.io.Serializable {
 		this.projectBuilder = projectBuilder;
 	}
 
-	public Date getProjectReviewDate() {
+	public String getProjectReviewDate() {
 		return this.projectReviewDate;
 	}
 
-	public void setProjectReviewDate(Date projectReviewDate) {
+	public void setProjectReviewDate(String projectReviewDate) {
 		this.projectReviewDate = projectReviewDate;
 	}
 
-	public Date getContractReviewDate() {
+	public String getContractReviewDate() {
 		return this.contractReviewDate;
 	}
 
-	public void setContractReviewDate(Date contractReviewDate) {
+	public void setContractReviewDate(String contractReviewDate) {
 		this.contractReviewDate = contractReviewDate;
 	}
 
@@ -229,12 +243,12 @@ public class Project implements java.io.Serializable {
 		this.contractReviewMaster = contractReviewMaster;
 	}
 
-	public Set getProjectDetails() {
-		return this.projectDetails;
-	}
-
-	public void setProjectDetails(Set projectDetails) {
-		this.projectDetails = projectDetails;
-	}
+//	public Set getProjectDetails() {
+//		return this.projectDetails;
+//	}
+//
+//	public void setProjectDetails(Set projectDetails) {
+//		this.projectDetails = projectDetails;
+//	}
 
 }

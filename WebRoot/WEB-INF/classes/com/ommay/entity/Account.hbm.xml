@@ -10,10 +10,15 @@
             <column name="account" length="30" />
             <generator class="assigned" />
         </id>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="100" />
+        </property>
         <property name="accountFlag" type="java.lang.Integer">
             <column name="account_flag" />
         </property>
-        <set name="accountFinances" inverse="true">
+    </class>
+</hibernate-mapping>
+<!--        <set name="accountFinances" inverse="true">
             <key>
                 <column name="account" length="30" />
             </key>
@@ -43,17 +48,9 @@
             </key>
             <one-to-many class="com.ommay.entity.AccountGroup" />
         </set>
-        <set name="projects" inverse="true">
-            <key>
-                <column name="account" length="30" />
-            </key>
-            <one-to-many class="com.ommay.entity.Project" />
-        </set>
         <set name="accountDoctors" inverse="true">
             <key>
                 <column name="account" length="30" />
             </key>
             <one-to-many class="com.ommay.entity.AccountDoctor" />
-        </set>
-    </class>
-</hibernate-mapping>
+        </set> -->

@@ -13,14 +13,17 @@
         <many-to-one name="account" class="com.ommay.entity.Account" fetch="select">
             <column name="account" length="30" />
         </many-to-one>
-        <property name="passwordDoctor" type="java.lang.String">
-            <column name="password_doctor" length="100" />
-        </property>
         <property name="departmentDoctor" type="java.lang.String">
             <column name="department_doctor" length="40" />
         </property>
         <property name="positionDoctor" type="java.lang.String">
             <column name="position_doctor" length="40" />
+        </property>
+        <property name="nameDoctor" type="java.lang.String">
+            <column name="name_doctor" length="10" />
+        </property>
+        <property name="phoneDoctor" type="java.lang.String">
+            <column name="phone_doctor" length="20" />
         </property>
         <property name="emailDoctor" type="java.lang.String">
             <column name="email_doctor" length="30" />

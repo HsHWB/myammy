@@ -6,27 +6,37 @@
 -->
 <hibernate-mapping>
     <class name="com.ommay.entity.ProjectDetail" table="project_detail" catalog="ommay">
-        <id name="uuidProjectDetail" type="java.lang.Long">
-            <column name="uuid_project_detail" />
-            <generator class="assigned" />
+        <id name="uidProjectDetail" type="java.lang.Integer">
+            <column name="uid_project_detail" />
+            <generator class="identity" />
         </id>
         <many-to-one name="project" class="com.ommay.entity.Project" fetch="select">
-            <column name="uuid_project" />
+            <column name="uid_project" />
         </many-to-one>
-        <property name="uuidOrderDetail" type="java.lang.Long">
-            <column name="uuid_order_detail" />
-        </property>
         <property name="testType" type="java.lang.String">
             <column name="test_type" length="20" />
         </property>
         <property name="number" type="java.lang.Integer">
             <column name="number" />
         </property>
-        <set name="orderDetails" inverse="true">
-            <key>
-                <column name="uuid_project_detail" />
-            </key>
-            <one-to-many class="com.ommay.entity.OrderDetail" />
-        </set>
+        <property name="packageName" type="java.lang.String">
+            <column name="package_name" length="20" />
+        </property>
+        <property name="packageNumber" type="java.lang.String">
+            <column name="package_number" length="50" />
+        </property>
+        <property name="packageClientName" type="java.lang.String">
+            <column name="package_client_name" length="50" />
+        </property>
+        <property name="packageSex" type="java.lang.String">
+            <column name="package_sex" length="10" />
+        </property>
+        <property name="packageAgeUpper" type="java.lang.Integer">
+            <column name="package_age_upper" />
+        </property>
+        <property name="packageAgeLower" type="java.lang.Integer">
+            <column name="package_age_lower" />
+        </property>
+        
     </class>
 </hibernate-mapping>

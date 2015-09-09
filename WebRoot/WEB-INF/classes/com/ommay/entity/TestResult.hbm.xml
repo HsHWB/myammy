@@ -6,15 +6,27 @@
 -->
 <hibernate-mapping>
     <class name="com.ommay.entity.TestResult" table="test_result" catalog="ommay">
-        <id name="uuidTestDetail" type="java.lang.Long">
-            <column name="uuid_test_detail" />
-            <generator class="assigned" />
+        <id name="uidTestDetail" type="java.lang.Integer">
+            <column name="uid_test_detail" />
+            <generator class="identity" />
         </id>
         <many-to-one name="orderDetail" class="com.ommay.entity.OrderDetail" fetch="select">
-            <column name="uuid_order_detail" />
+            <column name="uid_order_detail" />
         </many-to-one>
         <property name="result" type="java.lang.String">
             <column name="result" length="200" />
+        </property>
+        <property name="idPhysicalItem" type="java.lang.String">
+            <column name="id_physical_item" not-null="true" />
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="account" length="30" not-null="true" />
+        </property>
+        <property name="indentGroupMember" type="java.lang.String">
+            <column name="indent_group_member" />
+        </property>
+        <property name="uidProject" type="java.lang.String">
+            <column name="uid_project" />
         </property>
     </class>
 </hibernate-mapping>

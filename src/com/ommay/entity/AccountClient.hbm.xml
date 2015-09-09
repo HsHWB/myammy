@@ -13,14 +13,11 @@
         <many-to-one name="account" class="com.ommay.entity.Account" fetch="select">
             <column name="account" length="30" />
         </many-to-one>
-        <property name="passwordClient" type="java.lang.String">
-            <column name="password_client" length="100" />
-        </property>
         <property name="nameClient" type="java.lang.String">
             <column name="name_client" length="20" />
         </property>
-        <property name="sexIndent" type="java.lang.String">
-            <column name="sex_indent" length="10" />
+        <property name="sexClient" type="java.lang.String">
+            <column name="sex_client" length="10" />
         </property>
         <property name="phoneClient" type="java.lang.String">
             <column name="phone_client" length="20" />

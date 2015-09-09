@@ -1,8 +1,5 @@
 package com.ommay.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * IndentGroup entity. @author MyEclipse Persistence Tools
  */
@@ -11,47 +8,53 @@ public class IndentGroup implements java.io.Serializable {
 
 	// Fields
 
-	private Long indentGroupUniqueId;
-	private Indent indent;
+	private Integer uidIndentGroup;
+	private Integer uidIndent;
+	private Integer uidProject;
 	private String indentGroupName;
-	private Set indentGroupmembers = new HashSet(0);
 
 	// Constructors
 
 	/** default constructor */
 	public IndentGroup() {
-	}
-
-	/** minimal constructor */
-	public IndentGroup(Long indentGroupUniqueId) {
-		this.indentGroupUniqueId = indentGroupUniqueId;
+		this.uidIndentGroup = -1;
+		this.uidIndent = -1;
+		this.uidProject = -1;
+		this.indentGroupName = "Unknown";
 	}
 
 	/** full constructor */
-	public IndentGroup(Long indentGroupUniqueId, Indent indent,
-			String indentGroupName, Set indentGroupmembers) {
-		this.indentGroupUniqueId = indentGroupUniqueId;
-		this.indent = indent;
+	public IndentGroup(Integer uidIndent, Integer uidProject,
+			String indentGroupName) {
+		this.uidIndent = uidIndent;
+		this.uidProject = uidProject;
 		this.indentGroupName = indentGroupName;
-		this.indentGroupmembers = indentGroupmembers;
 	}
 
 	// Property accessors
 
-	public Long getIndentGroupUniqueId() {
-		return this.indentGroupUniqueId;
+	public Integer getUidIndentGroup() {
+		return this.uidIndentGroup;
 	}
 
-	public void setIndentGroupUniqueId(Long indentGroupUniqueId) {
-		this.indentGroupUniqueId = indentGroupUniqueId;
+	public void setUidIndentGroup(Integer uidIndentGroup) {
+		this.uidIndentGroup = uidIndentGroup;
 	}
 
-	public Indent getIndent() {
-		return this.indent;
+	public Integer getUidIndent() {
+		return this.uidIndent;
 	}
 
-	public void setIndent(Indent indent) {
-		this.indent = indent;
+	public void setUidIndent(Integer uidIndent) {
+		this.uidIndent = uidIndent;
+	}
+
+	public Integer getUidProject() {
+		return this.uidProject;
+	}
+
+	public void setUidProject(Integer uidProject) {
+		this.uidProject = uidProject;
 	}
 
 	public String getIndentGroupName() {
@@ -60,14 +63,6 @@ public class IndentGroup implements java.io.Serializable {
 
 	public void setIndentGroupName(String indentGroupName) {
 		this.indentGroupName = indentGroupName;
-	}
-
-	public Set getIndentGroupmembers() {
-		return this.indentGroupmembers;
-	}
-
-	public void setIndentGroupmembers(Set indentGroupmembers) {
-		this.indentGroupmembers = indentGroupmembers;
 	}
 
 }

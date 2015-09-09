@@ -1,5 +1,8 @@
 package com.ommay.dao;
-
+/**
+ * @author hs 2015/8/16
+ */
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,8 +43,8 @@ public class BaseDao {
 	 */
 	protected void  update(Object obj) {
 		getCurrentSession().update(obj);
+//		getCurrentSession().flush();
 	}
-	
 	/**
 	 * 游离类合并？
 	 * @param obj
@@ -86,23 +89,33 @@ public class BaseDao {
 
 	/**
 	 * 获取数据某区间 from -- > max
+	 * map不能为null，否则跟queryAll没区别。map应该为queryAll出来的list转成map
 	 * @param queryStr
 	 * @param map
 	 * @param from
 	 * @param max
 	 * @return
 	 */
-	protected List queryLimit(String queryStr, Map<String, Object> map,
-			int from, int max) {
-		Query query = getCurrentSession().createQuery(queryStr);
-		for (String key : map.keySet()) {
-			query.setParameter(key, map.get(key));
-		}
-		if (from >= 0 && max > 0) {
-			query.setFirstResult(from);
-			query.setMaxResults(max);
-		}
-		return query.list();
+//	protected List queryLimit(String queryStr, Map<String, Object> map,
+//			int from, int max) {
+//		Query query = getCurrentSession().createQuery(queryStr);
+//				for (String key : map.keySet()) {
+//					query.setParameter(key, map.get(key));
+//				}
+//				if (from >= 0 && max > 0) {
+//					query.setFirstResult(from);
+//					query.setMaxResults(max);
+//				}
+//		return query.list();
+//	}
+		protected List queryLimit(String queryStr,int from, int max) {
+			Query query = getCurrentSession().createQuery(queryStr);
+			List list = new ArrayList();
+			List allList = query.list();
+			for (int i = from; i < max && i < allList.size(); i++) {
+				list.add(allList.get(i));
+			}
+	return list;
 	}
 
 	/**

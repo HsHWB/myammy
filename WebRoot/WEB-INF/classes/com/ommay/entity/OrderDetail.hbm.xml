@@ -6,30 +6,24 @@
 -->
 <hibernate-mapping>
     <class name="com.ommay.entity.OrderDetail" table="order_detail" catalog="ommay">
-        <id name="uuidOrderDetail" type="java.lang.Long">
-            <column name="uuid_order_detail" />
-            <generator class="assigned" />
+        <id name="uidOrderDetail" type="java.lang.Integer">
+            <column name="uid_order_detail" />
+            <generator class="identity" />
         </id>
         <many-to-one name="projectDetail" class="com.ommay.entity.ProjectDetail" fetch="select">
-            <column name="uuid_project_detail" />
+            <column name="uid_project_detail" />
         </many-to-one>
         <many-to-one name="indent" class="com.ommay.entity.Indent" fetch="select">
-            <column name="uuid_indent" />
+            <column name="uid_indent" />
         </many-to-one>
-        <property name="orderTime" type="java.sql.Time">
-            <column name="order_time" length="8" />
+        <property name="orderTime" type="java.lang.String">
+            <column name="order_time" length="10" />
         </property>
-        <property name="moneyOrder" type="java.lang.Double">
-            <column name="money_order" precision="10" />
+        <property name="moneyOrder" type="java.lang.Integer">
+            <column name="money_order" />
         </property>
         <property name="orderClientName" type="java.lang.String">
             <column name="order_client_name" length="10" />
         </property>
-        <set name="testResults" inverse="true">
-            <key>
-                <column name="uuid_order_detail" />
-            </key>
-            <one-to-many class="com.ommay.entity.TestResult" />
-        </set>
     </class>
 </hibernate-mapping>

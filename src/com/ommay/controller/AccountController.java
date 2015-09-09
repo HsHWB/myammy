@@ -1,5 +1,7 @@
 package com.ommay.controller;
-
+/**
+ * @author  hs 2015/8/16
+ */
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.ommay.dao.AccountDao;
+import com.ommay.dao.LoginModuleDao;
 import com.ommay.entity.Account;
 import com.ommay.service.BaseService;
+import com.ommay.utils.Constant;
 import com.ommay.utils.JsonUtils;
 
 @Controller
@@ -31,8 +34,8 @@ public class AccountController {
 	 */
 	@RequestMapping(value="/login")
 	public String login(Model model){
-		model.addAttribute(new Account());
-		return "index";
+//		model.addAttribute(new Account());
+		return "admin";
 	}
 	
 	/**
@@ -61,10 +64,10 @@ public class AccountController {
     @ResponseBody
     public JSONObject  useGetData()
     {     
-	   List list = accountService.getAll();
+	   List list = accountService.getAll(Constant.TABLE_ACCOUNT_CLIENT);
 	   JSONArray jsonArray = new JSONArray();
 	   JSONObject jsonObject = new JSONObject();
-	   jsonObject = new JsonUtils().getJsonObject(list);
+//	   jsonObject = new JsonUtils().getJsonObject(list);
        return jsonObject;
     }
 	

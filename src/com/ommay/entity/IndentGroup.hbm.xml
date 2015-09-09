@@ -6,21 +6,18 @@
 -->
 <hibernate-mapping>
     <class name="com.ommay.entity.IndentGroup" table="indent_group" catalog="ommay">
-        <id name="indentGroupUniqueId" type="java.lang.Long">
-            <column name="indent_group_unique_id" />
-            <generator class="assigned" />
+        <id name="uidIndentGroup" type="java.lang.Integer">
+            <column name="uid_indent_group" />
+            <generator class="identity" />
         </id>
-        <many-to-one name="indent" class="com.ommay.entity.Indent" fetch="select">
-            <column name="uuid_indent" />
-        </many-to-one>
+        <property name="uidIndent" type="java.lang.Integer">
+            <column name="uid_indent" />
+        </property>
+        <property name="uidProject" type="java.lang.Integer">
+            <column name="uid_project" />
+        </property>
         <property name="indentGroupName" type="java.lang.String">
             <column name="indent_group_name" length="20" />
         </property>
-        <set name="indentGroupmembers" inverse="true">
-            <key>
-                <column name="indent_group_unique_id" />
-            </key>
-            <one-to-many class="com.ommay.entity.IndentGroupmember" />
-        </set>
     </class>
 </hibernate-mapping>

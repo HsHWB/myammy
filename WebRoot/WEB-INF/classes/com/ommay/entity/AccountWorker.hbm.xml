@@ -13,9 +13,6 @@
         <many-to-one name="account" class="com.ommay.entity.Account" fetch="select">
             <column name="account" length="30" />
         </many-to-one>
-        <property name="passwordWorker" type="java.lang.String">
-            <column name="password_worker" length="100" />
-        </property>
         <property name="emailWorker" type="java.lang.String">
             <column name="email_worker" length="30" />
         </property>
@@ -27,9 +24,6 @@
         </property>
         <property name="nameWorker" type="java.lang.String">
             <column name="name_worker" length="10" />
-        </property>
-        <property name="sexWorker" type="java.lang.String">
-            <column name="sex_worker" length="10" />
         </property>
         <property name="phoneWorker" type="java.lang.String">
             <column name="phone_worker" length="20" />

@@ -8,20 +8,24 @@ public class AccountWorker implements java.io.Serializable {
 
 	// Fields
 
-	private String accountWorker;
+	private String accountWorker = "accountWorker";
 	private Account account;
-	private String passwordWorker;
-	private String emailWorker;
-	private String departmentWorker;
-	private String positionWorker;
-	private String nameWorker;
-	private String sexWorker;
-	private String phoneWorker;
+	private String emailWorker = "emailWorker";
+	private String departmentWorker = "departmentWorker";
+	private String positionWorker = "positionWorker";
+	private String nameWorker = "nameWorker";
+	private String phoneWorker = "123456";
 
 	// Constructors
 
 	/** default constructor */
 	public AccountWorker() {
+		this.accountWorker ="accountWorker";
+		this.emailWorker =  "emailWorker";
+		this.departmentWorker = "departmentWorker";
+		this.positionWorker = "positionWorker";
+		this.nameWorker = "nameWorker";
+		this.phoneWorker = "123456";
 	}
 
 	/** minimal constructor */
@@ -31,17 +35,14 @@ public class AccountWorker implements java.io.Serializable {
 
 	/** full constructor */
 	public AccountWorker(String accountWorker, Account account,
-			String passwordWorker, String emailWorker, String departmentWorker,
-			String positionWorker, String nameWorker, String sexWorker,
-			String phoneWorker) {
+			String emailWorker, String departmentWorker, String positionWorker,
+			String nameWorker, String phoneWorker) {
 		this.accountWorker = accountWorker;
 		this.account = account;
-		this.passwordWorker = passwordWorker;
 		this.emailWorker = emailWorker;
 		this.departmentWorker = departmentWorker;
 		this.positionWorker = positionWorker;
 		this.nameWorker = nameWorker;
-		this.sexWorker = sexWorker;
 		this.phoneWorker = phoneWorker;
 	}
 
@@ -61,14 +62,6 @@ public class AccountWorker implements java.io.Serializable {
 
 	public void setAccount(Account account) {
 		this.account = account;
-	}
-
-	public String getPasswordWorker() {
-		return this.passwordWorker;
-	}
-
-	public void setPasswordWorker(String passwordWorker) {
-		this.passwordWorker = passwordWorker;
 	}
 
 	public String getEmailWorker() {
@@ -101,14 +94,6 @@ public class AccountWorker implements java.io.Serializable {
 
 	public void setNameWorker(String nameWorker) {
 		this.nameWorker = nameWorker;
-	}
-
-	public String getSexWorker() {
-		return this.sexWorker;
-	}
-
-	public void setSexWorker(String sexWorker) {
-		this.sexWorker = sexWorker;
 	}
 
 	public String getPhoneWorker() {

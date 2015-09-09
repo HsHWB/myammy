@@ -17,7 +17,7 @@ body, td, th {
     color: rgb(72, 114, 113);
 }
 .header-right a{
-    font-size: 5px;
+    font-size: 10px;
 }
 .carousel{
     margin: 20px 0;
@@ -62,7 +62,7 @@ body, td, th {
     margin-left: -15px; 
 }
 
-/*    导航栏效果        */
+/*    ���������������        */
 /*nav*/
 
 nav.navbar {
@@ -90,7 +90,7 @@ nav.navbar li.open>a {
   top: 17px;
   border-width: 0 0 1px;
 }
-/* 尾部html */
+/* ������html */
 #End {
   padding-top: 47px;
   padding-bottom: 1px;
