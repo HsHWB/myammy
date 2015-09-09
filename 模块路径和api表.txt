@@ -1,0 +1,87 @@
+功能:
+
+获取注册对象：http://localhost:8080/Ommay/account/register
+return : /administrator/admin jsp页面
+进行注册action提交：http://localhost:8080/Ommay/account/checkRegister
+return:登陆成功后的页面
+
+/**==============================================================================================================**/
+
+获取登陆对象：http://localhost:8080/Ommay/account/login
+return :  ?  jsp页面
+进行登陆action提交:http://localhost:8080/Ommay/account/checkLogin
+return:登陆成功后的页面
+
+/**==============================================================================================================**/
+
+新建项目功能跳转:http://localhost:8080/Ommay/account/sa_index
+return :salesman/sa_index  jsp页面
+获取新建项目对象：http://localhost:8080/Ommay/account/project
+return：/salesman/sa_newProject_merge  新建项目jsp页面
+进行新建项目action提交:http://localhost:8080/Ommay/account/newProject
+return:boolean判断是否操作成功
+
+/**==============================================================================================================**/
+
+获取修改密码对象:http://localhost:8080/Ommay/account/password
+return: ? jsp页面
+进行修改密码action提交:http://localhost:8080/Ommay/account/changePassword
+return :boolean判断是否操作成功
+
+/**==============================================================================================================**/
+查看所有个人信息:
+这是一个jsonobject  api,前端直接发送请求接收jsonobject信息
+
+/**==============================================================================================================**/
+
+查看个人信息:
+这是一个api
+
+/**==============================================================================================================**/
+
+
+获取修改个人信息对象:
+http://localhost:8080/Ommay/check/UserMessage/updateObject
+return:  ?  jsp页面
+进行修改个人信息提交:
+http://localhost:8080/Ommay/check/UserMessage/updateUserMessage
+return : String
+
+/**==============================================================================================================**/
+
+
+查看体检结果:
+这是一个api
+/**==============================================================================================================**/
+/**==============================================================================================================**/
+
+
+
+
+API：
+验证用户是否存在:http://localhost:8080/Ommay/account/isAccountExist      param: accountName
+即http://localhost:8080/Ommay/account/isAccountExist?accountName=
+return : int 0:用户不存在   int 1:用户存在
+
+/**==============================================================================================================**/
+
+验证登陆用户的用户名和密码:http://localhost:8080/Ommay/account/isAccountTrue  param:无
+
+/**==============================================================================================================**/
+
+查看所有个人信息:http://localhost:8080/Ommay/account/allUser/getAll      param:无
+return :jsonObject
+example:{"msg":"no message","result":[{"password":"11","accountFlag":5,"account":"id110"},{"password":"11","accountFlag":4,"account":"id111"},{"password":"123","accountFlag":4,"account":"id141"},{"password":"123","accountFlag":6,"account":"id161"}],"code":"1"}
+
+/**==============================================================================================================**/
+
+查看个人信息(角色查看自己的信息):http://localhost:8080/Ommay/check/UserMessage/getUserMessage   param:无
+return : jsonObject
+example:
+{"msg":"no message","result":[{"emailGroup":"1212@163.com","accountGroup":"id141","nameMaster":"id141","phoneMaster":"12121212","workingPhoneMaster":"12121212","account":{"password":"123","accountFlag":4,"account":"id141"}}],"code":"1"}
+
+/**==============================================================================================================**/
+
+查看体检结果:http://localhost:8080/Ommay/check/UserMessage/checkResult     param:int uid_indent
+return jsonObject;
+

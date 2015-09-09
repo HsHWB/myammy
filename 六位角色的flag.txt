@@ -1,0 +1,30 @@
+﻿Pulic xxx xxx(xxxx,  HttpSession session){ 
+
+Int flag = session.getAttribute(“flag”);
+switch (flag) {
+			case 1:
+				//会员
+				AccountClient
+				break;
+			case 2:
+				//医生
+				AccountDoctor
+				break;
+			case 3:
+				//财务
+				AccountFinance
+				break;
+			case 4:
+				//客户代表
+				AccountGroup
+				break;
+			case 5:
+				//经理
+				AccountManager
+				break;
+			case 6:
+				//业务员
+				AccountWorker
+				break;
+			}
+}

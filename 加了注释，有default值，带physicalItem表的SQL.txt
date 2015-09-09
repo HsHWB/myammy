@@ -1,0 +1,332 @@
+
+
+SET PASSWORD FOR 'root'@'localhost'=PASSWORD('ommay');
+
+
+drop table if exists account;
+
+drop table if exists account_client;
+
+drop table if exists account_doctor;
+
+drop table if exists account_finance;
+
+drop table if exists account_group;
+
+drop table if exists account_manager;
+
+drop table if exists account_worker;
+
+drop table if exists indent;
+
+drop table if exists indent_groupmember;
+
+drop table if exists indent_group_member;
+
+drop table if exists indent_group;
+
+drop table if exists indent_vip;
+
+drop table if exists order_detail;
+
+drop table if exists project;
+
+drop table if exists project_detail;
+
+drop table if exists test_result;
+
+drop table if exists indent_group_member;
+
+drop table if exists indent_group;
+
+drop table if exists indent_vip;
+
+drop table if exists indent;
+
+create table account
+(
+   account              varchar(30) not null,
+   password      varchar(100),
+   account_flag         int,
+   primary key (account)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: account_client                                        */
+/*==============================================================*/
+create table account_client
+(
+   account_client       varchar(30) not null,
+   account              varchar(30),/*外键*/
+   name_client          varchar(20)default '没有名字',/*真实姓名*/
+   sex_client           varchar(10)default '女',
+   phone_client         varchar(20)default '0',
+   identity_card_number varchar(24)default '123456789012345678',/*身份证*/
+   email_client         varchar(30)default 'you@example.com',
+   sickness_history     varchar(200)default '无',/*病历*/
+   address_client       varchar(200)default '四川成都市高新西区尚锦路89号',
+   primary key (account_client),
+   foreign key (account) references account(account)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: account_doctor                                        */
+/*==============================================================*/
+create table account_doctor
+(
+   account_doctor       varchar(30) not null,
+   account              varchar(30),
+   department_doctor    varchar(40)default '未定义',/*部门*/
+   position_doctor      varchar(40)default '未定义',/*ְ职位*/
+   name_doctor          varchar(10)default '没有名字',/*真实姓名*/
+   phone_doctor         varchar(20)default '0',
+   email_doctor         varchar(30)default 'you@example.com',
+   primary key (account_doctor) ,
+   foreign key (account) references account(account)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: account_finance                                       */
+/*==============================================================*/
+create table account_finance
+(
+   account_finance      varchar(30) not null,
+   account              varchar(30),
+   email_finance        varchar(30)default 'you@example.com',
+   department_finance   varchar(40)default '未定义',/*部门*/
+   position_finance     varchar(40)default '未定义',/*ְ职位*/
+   name_finance         varchar(10)default '没有名字',/*真实姓名*/
+   phone_finance        varchar(20)default '0',
+   primary key (account_finance),
+   foreign key (account) references account(account)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: account_group                                         */
+/*==============================================================*/
+create table account_group/**/
+(
+   account_group        varchar(30) not null,
+   account              varchar(30),
+   name_master          varchar(10)default '没有名字',/*真实姓名*/
+   phone_master         varchar(20)default '0',
+   working_phone_master varchar(20)default '0',/*工作电话*/
+   email_group          varchar(20)default 'you@example.com',
+   primary key (account_group) ,
+   foreign key (account) references account(account)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: account_manager                                       */
+/*==============================================================*/
+create table account_manager
+(
+   account_manager      varchar(30) not null,
+   account              varchar(30),
+   email_manager        varchar(30)default 'you@example.com',
+   department_manager   varchar(40)default '未定义',
+   position_manager     varchar(40)default '未定义',/*ְ职位*/
+   name_manager         varchar(10)default '没有名字',/*真实姓名*/
+   phone_manager        varchar(20)default '0',
+   primary key (account_manager) ,
+   foreign key (account) references account(account)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: account_worker                                        */
+/*==============================================================*/
+create table account_worker
+(
+   account_worker       varchar(30) not null,
+   account              varchar(30),
+   email_worker         varchar(30)default 'you@example.com',
+   department_worker    varchar(40)default '未定义',
+   position_worker      varchar(40)default '未定义',/*ְ职位*/
+   name_worker          varchar(10)default '没有名字',/*真实姓名*/
+   phone_worker         varchar(20)default '0',
+   primary key (account_worker) ,
+   foreign key (account) references account(account)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: indent                                                */
+/*==============================================================*/
+create table indent/*订单*/
+(
+   uid_indent          bigint  auto_increment,
+   is_paid                      bool default false,/*是否支付*/
+   is_paid_operator             varchar(20)default '未定义',
+   is_paid_date             varchar(20)default '19900101',
+   money_indent         decimal default 0,/*订单总金额*/
+   finish_indent        bool default false,/*订单是否已完成*/
+   finish_operator             varchar(20)default '未定义',
+   finish_date             varchar(20)default '19900101',
+   has_result                 bool default false,/*是否出结果*/
+   has_result_operator             varchar(20)default '未定义',
+   has_result_date             varchar(20)default '19900101',
+   primary key (uid_indent)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: indent_group                                          */
+/*==============================================================*/
+create table indent_group
+(
+   uid_indent_group bigint auto_increment,/**/
+   uid_indent          bigint,/*外键*/
+   indent_group_name    varchar(20),
+   primary key (uid_indent_group),
+   foreign key (uid_indent) references indent(uid_indent)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+/*==============================================================*/
+/* Table: indent_group_member                                  */
+/*==============================================================*/
+create table indent_group_member
+(
+   uid_indent_member bigint auto_increment,/*用这个来当“二维码”*/
+   uid_indent_group bigint,/*外键*/
+   uid_indent bigint,/*外键*/
+   indent_inc_name        varchar(30),/*公司标志*/
+   /*下面为个人属性*/
+   indent_group_member_name varchar(10)default '没有名字',/*真实姓名*/
+   indent_group_member_sex varchar(10)default '女',
+   indent_group_member_age int default 0,
+   indent_group_member_sickness_history varchar(200)default '无',
+   primary key (uid_indent_member) ,
+   foreign key (uid_indent_group) references indent_group(uid_indent_group),
+   foreign key (uid_indent) references indent(uid_indent)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*==============================================================*/
+/* Table: indent_vip                                            */
+/*==============================================================*/
+create table indent_vip/*会员订单*/
+(
+   uid_indent_vip bigint auto_increment,/*二维码，也是主键*/
+   uid_indent          bigint,/*外键*/
+   account_client_indent varchar(30),/*会员的账户名*/
+   indent_vip_name      varchar(10)default '没有名字',/*真实姓名*/
+   indent_vip_sex       varchar(10)default '女',
+   indent_vip_phone     varchar(20)default '0',
+   indent_vip_IDcard    varchar(30)default '123456789012345678',/*身份证*/
+   indent_vip_email     varchar(20)default 'you@example.com',
+   indent_vip_address   varchar(40)default '无',
+   indent_vip_sickness_history varchar(200)default '无',
+   primary key (uid_indent_vip),
+   foreign key (uid_indent) references indent (uid_indent)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+/*==============================================================*/
+/* Table: project                                               */
+/*==============================================================*/
+create table project
+(
+   uid_project         bigint auto_increment,
+   account              varchar(30),/*外键*/
+   client_name          varchar(30)default '没有名字',/*真实姓名*/
+   project_review_flag  bool default false,/*项目审批flag*/
+   contract_review_flag bool default false,/*合同审批flag*/
+   time_begin           varchar(30)default '19900101',
+   time_end             varchar(30)default '19900101',
+   address_group        varchar(40)default '未定义',/**/
+   people_number        int default 0,/*人数*/
+   remark               varchar(100)default '无',/*备注*/
+   project_builder      varchar(30) default '0',/*业务员账户，即表的主键*/ ==================================account_worker
+   project_review_date  varchar(30)default '19900101',
+   contract_review_date varchar(30)default '19900101',
+   project_review_remark varchar(100)default '无',/*\B1\B8ע*/
+   project_review_master varchar(30)default '0',/*项目审批经理账户，即表的主键*/
+   contract_review_remark varchar(100)default '无',
+   contract_review_master varchar(30)default '0',/*合同审批经理账户，即表的主键*/
+   primary key (uid_project)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: project_detail                                        */
+/*==============================================================*/
+create table project_detail
+(
+   uid_project_detail  bigint auto_increment,
+   uid_project         bigint,/*外键*/
+   test_type           varchar(20)default '未定义',/*套餐类型*/
+   number              int default 0,/*套餐数*/
+   package_name        varchar(20) default '未定义',
+   package_number      varchar(50) default '0',
+   package_client_name varchar(50) default '未定义',
+   package_sex         varchar(10) default '女',
+   package_age_upper   int default 99,
+   package_age_lower   int default 0,
+   primary key (uid_project_detail),
+   foreign key (uid_project) references project (uid_project)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*==============================================================*/
+/* Table: order_detail                                          */
+/*==============================================================*/
+create table order_detail/*预约细则，订单表的一行对应这里的多个项*/
+(
+   uid_order_detail    bigint auto_increment,
+   uid_indent          bigint,/*外键*/
+   uid_project_detail  bigint,/*外键*/
+   order_time           varchar(10)default '0000',
+   money_order          decimal(10,2)default 0,
+   order_client_name    varchar(10)default '未定义',
+   primary key (uid_order_detail),
+   foreign key (uid_indent) references indent (uid_indent),
+   foreign key (uid_project_detail) references project_detail (uid_project_detail)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*==============================================================*/
+/* Table: test_result                                           */
+/*==============================================================*/
+create table test_result/*这里的一项对应order detail 的一项*/
+(
+   uid_test_detail     bigint auto_increment,
+   uid_order_detail    bigint,/*外键*/
+   result               varchar(200)default '无',
+   primary key (uid_test_detail),
+   foreign key (uid_order_detail) references order_detail (uid_order_detail)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE physical_item(
+	id_item VARCHAR(255) NOT NULL,
+	name_item VARCHAR(255) NOT NULL,
+	type_item VARCHAR(255) NOT NULL,
+	department_item VARCHAR(255) NOT NULL,
+	price_item decimal(10,2) NOT NULL,
+	gender_item VARCHAR(12) NOT NULL,
+	capacity_item INT NOT NULL,
+PRIMARY KEY (id_item),
+CHECK (gender_item='male' OR gender_item='female' OR gender_item='both')
+)ENGINE=InnoDB DEFAULT charset=utf8;
+
+INSERT INTO physical_item VALUES ('1','眼科','视力','眼科室','10.00','both','999');
+	
+INSERT INTO physical_item VALUES ('2','鼻喉科','耳、鼻、喉、口咽、鼻咽','鼻喉科科室','20.00','both','999');
+
+INSERT INTO physical_item VALUES ('3','耳科','听力','耳科室','10.00','both','999');
+
+INSERT INTO physical_item VALUES ('4','彩超检查','上腹（肝胆胰脾肾）+泌尿系','彩超科室','50.00','male','100');
+
+INSERT INTO physical_item VALUES ('5','彩超检查','上腹（肝胆胰脾肾）+盆腔','彩超科室','50.00','female','100');
+
+INSERT INTO physical_item VALUES ('6','妇科','白带常规检查','妇科室','30.00','female','100');
+
+INSERT INTO physical_item VALUES ('12','骨科','X光检查','放射科室','100.00','both','100');
+
+INSERT INTO physical_item VALUES ('7','肺功能','肺活量、一秒用力吐气量、血氧饱和度等','五脏科室','10.00','both','999');
+
+INSERT INTO physical_item VALUES ('8','生化/免疫类','癌症筛查——卵巢肿瘤标记物','实验科室','200.00','female','999');
+
+INSERT INTO physical_item VALUES (
+'9','生化/免疫类','癌症筛查——前列腺肿瘤标记物','实验科室','200.00','male','999'
+);
+
+INSERT INTO physical_item VALUES (
+'10','生化/免疫类','血液常规检查','实验科室','200.00','both','999'
+);
+
+INSERT INTO physical_item VALUES (
+'11','CT检查','头部CT检查','放射科室','300.00','both','100'
+);
